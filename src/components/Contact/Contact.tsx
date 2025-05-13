@@ -1,7 +1,14 @@
 import css from "./Contact.module.css";
 import { IoMdPerson } from "react-icons/io";
 import { FaPhoneAlt } from "react-icons/fa";
-export default function Contact({ contact: { id, name, number }, onDelete }) {
+import { oneContact } from "../../App";
+
+interface Props {
+  contact: oneContact;
+  onDelete: (numberId: string) => void;
+}
+
+const Contact:React.FC<Props> =({ contact: { id, name, number }, onDelete }) => {
   return (
     <div className={css.wrap}>
       <div>
@@ -15,9 +22,11 @@ export default function Contact({ contact: { id, name, number }, onDelete }) {
         </div>
       </div>
 
-      <button className={css.button} type="button" onClick={() => onDelete(id)}>
+      <button className={css.button} type="button" onClick={() => id && onDelete(id)}>
         Delete
       </button>
     </div>
   );
 }
+
+export default Contact;

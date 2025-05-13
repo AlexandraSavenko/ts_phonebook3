@@ -20,6 +20,7 @@ export default function ContactForm({ onAdd }) {
       initialValues={{ name: "", number: "" }}
       validationSchema={UserScheme}
       onSubmit={(values, actions) => {
+        console.log(values)
         onAdd(values);
         actions.resetForm();
       }}

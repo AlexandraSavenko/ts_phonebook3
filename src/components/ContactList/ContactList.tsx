@@ -1,6 +1,13 @@
+import { oneContact } from "../../App";
 import Contact from "../Contact/Contact";
 import css from "./ContactList.module.css";
-export default function ContactList({ contArr, onDelete }) {
+
+interface Props {
+  contArr: oneContact[];
+  onDelete: (numberId: string) => void;
+}
+
+const ContactList:React.FC<Props> = ({ contArr, onDelete }) => {
   return (
     <ul>
       {contArr.map((contact) => {
@@ -13,3 +20,5 @@ export default function ContactList({ contArr, onDelete }) {
     </ul>
   );
 }
+
+export default ContactList
