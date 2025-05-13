@@ -6,7 +6,7 @@ import ContactForm from "./components/ContactForm/ContactForm";
 import { nanoid } from "nanoid";
 const savedNumbers = window.localStorage.getItem("myContacts");
 
-interface NewContact {
+export interface NewContact {
     name: string | null;
   number: string | null;
 }

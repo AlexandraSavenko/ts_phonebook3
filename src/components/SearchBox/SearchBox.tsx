@@ -1,4 +1,9 @@
-export default function SearchBox({ value, onFilter }) {
+interface Props {
+  value: string | undefined;
+  onFilter: React.Dispatch<React.SetStateAction<string>>;
+}
+
+const SearchBox: React.FC<Props> = ({ value, onFilter }) => {
   return (
     <div>
       <p>Find contact by name</p>
@@ -10,3 +15,5 @@ export default function SearchBox({ value, onFilter }) {
     </div>
   );
 }
+
+export default SearchBox;

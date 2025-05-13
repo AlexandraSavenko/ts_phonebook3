@@ -2,6 +2,7 @@ import { useId } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import css from "./ContactForm.module.css";
+import { NewContact } from "../../App";
 const UserScheme = Yup.object().shape({
   name: Yup.string()
     .min(3, "Too short! Not less than 3 symbols.")
@@ -13,7 +14,11 @@ const UserScheme = Yup.object().shape({
     .max(50, "Too many! No more than 50 symbols.")
     .required(),
 });
-export default function ContactForm({ onAdd }) {
+
+interface Props {
+  onAdd: (newNumber: NewContact) => void
+}
+const ContactForm: React.FC<Props> = ({ onAdd }) => {
   const id = useId();
   return (
     <Formik
@@ -37,3 +42,6 @@ export default function ContactForm({ onAdd }) {
     </Formik>
   );
 }
+
+
+export default ContactForm;
